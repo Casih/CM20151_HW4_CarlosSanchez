@@ -1,0 +1,14 @@
+all: miaudio.wav mi_voz.png mivoz_fft.png 
+
+
+
+mi_voz.png: grafica_mi_voz.py
+	 python grafica_mi_voz.py
+mivoz_fft.png: fft_de_mi_voz.py
+	 python fft_de_mi_voz.py
+miaudio.wav: grabar_mi_nombre.x
+	./grabar_mi_nombre.x
+grabar_mi_nombre.x: grabar_mi_nombre.c
+	cc grabar_mi_nombre.c -o grabar_mi_nombre.x
+clean:
+	 rm -f grabar_mi_nombre.x
